@@ -360,3 +360,8 @@ int main()
 	system("pause");
 	return 0;
 }
+/*
+author
+  abdul samad
+	uetian 2018 session
+*/
