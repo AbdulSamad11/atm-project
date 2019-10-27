@@ -357,7 +357,7 @@ int main()
 			}
 		}
 	}
-	system("pause");
+	system("pause"); //this is only for vs code
 	return 0;
 }
 /*
