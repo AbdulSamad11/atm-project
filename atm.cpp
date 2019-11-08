@@ -8,25 +8,25 @@ class Bank
 public:
 	int code;
 	string name, address;
-	Bank()
+	Bank()                 // this initializes the code, name, address 
 	{
 		code = 56567;
 		name = "HBL";
 		address = "26 street mumtazabad multan";
 	}
-	void showDetails()
+	void showDetails()		// this function will shows the details of user
 	{
 		cout <<"Bank code is: " <<code << endl << "Bank name is:  " << name << endl <<"Address of bank is: "
                      << address << endl;
 	}
-	void startMenu()
+	void startMenu()		// this function is for starting interface
 	{
 		cout << "\n\t\t\t***WELCOME TO OUR ATM SYSTEM***" << endl;
 		cout << "\n\nPRESS to login as\n1-ADMIN " << endl;
 		cout << "2-USER" << endl;
 
 	}
-	void adminMenu()
+	void adminMenu()			// this function shows the admin interface
 	{
 		system("cls");
 		cout << "1-Add customer" << endl;
@@ -36,7 +36,7 @@ public:
 		cout << "5-Load Customers" << endl;
 		cout << "6-Return to Main Menu" << endl;
 	}
-	void userMenu()
+	void userMenu()				// this function shows the user interface
 	{
 		system("cls");
 		cout << "1-Deposit Amount" << endl;
@@ -46,7 +46,7 @@ public:
 		cout << "5-Bank Information" << endl;
 		cout << "6-Admin Info" << endl;
 	}
-	bool password(string pass)
+	bool password(string pass)		// this function is for password validity
 	{
 		string password = "pak";
 		if (pass.compare(password) == 0)
@@ -63,10 +63,10 @@ class debitCard
 public:
 	double accountNo;
 	int pin, n;
-	debitCard(int Pin) {
+	debitCard(int Pin) {		// parameterized constructor
 		pin = Pin;
 	}
-	debitCard(double accountNo, int pin) {
+	debitCard(double accountNo, int pin) {		
 
 		this->accountNo = accountNo;
 		this->pin = pin;
@@ -74,7 +74,7 @@ public:
 		if (n > 20)
 			n = 0;
 	}
-	bool VerifyPin(int Pin)
+	bool VerifyPin(int Pin)			// function to varify pin
 	{
 		return (pin == Pin);
 	}
@@ -88,7 +88,7 @@ public:
 	string type;
 	string date;
 	int pin;
-	Transaction(){ date = "15-6-2000"; }
+	Transaction(){ date = "15-6-2000"; }		// constructor
 	Transaction(double accountNo, string type, int pin)
 	{
 		this->accountNo = accountNo;
@@ -98,12 +98,12 @@ public:
 	}
 };
 
-int Transaction::amount = 0;
+int Transaction::amount = 0;	//initialize the amount with 0
 
 class WithdrawAmount :public Transaction
 {
 public:
-	 bool Withdraw(int am)
+	 bool Withdraw(int am)			// this function checks the balance before withdraw
 	{
 		if ((amount - am) < 0)
 		{
@@ -120,7 +120,7 @@ public:
 class DepositAmount :public Transaction
 {
 public:
-	 void Deposit(int am)
+	 void Deposit(int am)	//this function is for deposit amount
 	{
 		amount = amount + am;
 	}
@@ -135,13 +135,13 @@ public:
 	
 	
 
-	Customer(string name, double accountNo, string type)
+	Customer(string name, double accountNo, string type)	// constructor
 	{
 		this->name = name;
 		this->accountNo = accountNo;
 		this->type = type;
 	}
-	bool loadCustomers()
+	bool loadCustomers()						//this function is to load all customers
 	{
 		char ch;
 		ifstream read;
@@ -154,7 +154,7 @@ public:
 		read.close();
 		return true;
 	}
-	void Details()
+	void Details()				//this function shows the details of the user
 	{
 		cout << "Name: " << name << endl;
 		cout << "Account No: " << accountNo << endl;
